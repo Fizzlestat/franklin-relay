@@ -112,13 +112,6 @@ const TookTooLong = new MessageEmbed()
   .setColor('#eb4034')
   .setDescription("You took too long to respond!")
 
-const clean = text => {
-  if (typeof(text) === "string")
-    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  else
-      return text;
-}
-
 
 async function determineType(method,message,BotMsg,args) {
   if (isNaN(Number(args[1]))) {
@@ -183,21 +176,7 @@ client.on('message', async (message) => {
         var BotMsg = await message.channel.send("<@" + message.author.id + ">",Emb);
         determineType("Kick",message,BotMsg,args);
       }
-  
-  if (isCommand("eval", message)) {
-  if(message.author.id !== "264567955952631810") return;
-    try {
-      const coode = args.join(" ");
-      let evaled = eval(coode);
- 
-      if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
- 
-      message.channel.send(clean(evaled), {code:"xl"});
-    } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
-  }
+
   
    if (message.content === '.ping') {
         var ping = Date.now() - message.createdTimestamp  + "ms |"
