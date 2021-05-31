@@ -92,7 +92,7 @@ function byUser(method,usr,message) {
       })
       res.on('end', () => {
         if (JSON.parse(data).Id != undefined) {
-          toBan.push({method: method,value: JSON.parse(data).Id,username: JSON.parse(data).Username,cid: message.channel.id,mid: message.id});
+          toBan.push({method: method,value: JSON.parse(data).Id,username: JSON.parse(data).Username,cid: message.channel.id,mid: message.id,author: message.author.name});
         } else {
           message.edit(Invalid);
         }
