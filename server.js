@@ -112,7 +112,7 @@ const TookTooLong = new MessageEmbed()
   .setColor('#eb4034')
   .setDescription("You took too long to respond!")
 
-function clean(text) {
+const clean = text => {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
   else
