@@ -1,10 +1,12 @@
-// Made by Stratiz
-
-// init project
 require('dotenv').config(); 
 const express = require('express');
 var bodyParser = require('body-parser');
 const https = require('https');
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('ok');
+});
+server.listen(3000);
 const app = express();
 const {
     Client,
@@ -14,12 +16,12 @@ let client = new Client();
 
 
 
-//// IMPORTANT VVV
-let token = process.env.CLIENT_TOKEN //Your token goes in key.env (Discord bot)
-let prefix = '.'; // Discord bot prefix
+//variables
+let token = process.env.CLIENT_TOKEN 
+let prefix = '.'; 
 let rolename = "Staff"
 var ownerID = 264567955952631810
-/// IMPORTANT ^^^
+
 
 let numbers = [
   "0️⃣",
